@@ -48,6 +48,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "tree-sitter": "./vendor/node-tree-sitter"
+    "tree-sitter": "^0.20.4"
   }
 }
