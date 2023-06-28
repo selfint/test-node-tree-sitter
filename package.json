@@ -1,6 +1,7 @@
 {
   "name": "test-debug",
   "displayName": "test-debug",
+  "license": "MIT",
   "description": "",
   "version": "0.0.1",
   "engines": {
