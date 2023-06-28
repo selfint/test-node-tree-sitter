@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 16
       # https://github.com/actions/setup-node/issues/68#issuecomment-536238341
-      - name: patch node gyp on windows to support Visual Studio 2019
+      - name: Patch node gyp on windows to support Visual Studio 2019
         if: runner.os == 'windows'
         shell: powershell
         run: |
@@ -27,7 +27,7 @@ jobs:
       - name: Pull submodules
         run: git submodule update --init --recursive
       - name: Install root project dependencies
-        run: yarn && yarn run rebuild:dev
+        run: yarn --verbose && yarn --verbose run rebuild:dev
       - name: Run tests
         uses: coactions/setup-xvfb@v1
         with:
