@@ -17,9 +17,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install windows build tools
+      # https://github.com/actions/setup-node/issues/68#issuecomment-536238341
+      - name: patch node gyp on windows to support Visual Studio 2019
         if: runner.os == 'windows'
-        run: npm install --global --production windows-build-tools --vs2015
+        shell: powershell
+        run: |
+          npm install --global node-gyp@latest
+          npm prefix -g | % {npm config set node_gyp "$_\node_modules\node-gyp\bin\node-gyp.js"}
       - name: Pull submodules
         run: git submodule update --init --recursive
       - name: Install root project dependencies
